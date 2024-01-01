@@ -6,10 +6,12 @@ import (
 	"net/http"
 )
 
+func helloHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Hello, World!")
+}
+
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello, World!")
-	})
+	http.HandleFunc("/", helloHandler)
 
 	addr := ":8080"
 
